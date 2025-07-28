@@ -1,0 +1,548 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(-45deg, #667eea, #764ba2, #6B46C1, #4F46E5);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 28rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 2rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #e5e7eb;
+}
+
+.loginHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.loginHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.loginHeader p {
+  color: #6b7280;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.successMessage,
+.errorMessage {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.successMessage {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.errorMessage {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.dismissButton {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+}
+
+.dismissButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.version {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.loginFormContainer {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.5s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 28rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #e5e7eb;
+}
+
+.loginCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.05));
+  z-index: -1;
+  border-radius: 1rem;
+}
+
+.loginTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.loginTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 0.25rem;
+  background: var(--primary-color);
+  border-radius: 0.125rem;
+}
+
+.loginSubtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Logo and welcome section */
+.logoContainer {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcomeText {
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Login form container */
+.loginForm {
+  margin-top: 1.5rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Demo login section */
+.demoSection {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0 1rem;
+}
+
+.signupPrompt {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.signupLink {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 0.25rem 0.25rem 0.25rem 0;
+  margin-left: 0.25rem;
+}
+
+.signupLink .linkIcon {
+  transition: transform 0.2s ease;
+  font-size: 0.9em;
+}
+
+.signupLink:hover {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.signupLink:hover .linkIcon {
+  transform: translateX(2px);
+}
+
+.linkIcon {
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+/* Demo login button */
+.demoButton {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #6B46C1 0%, #805AD5 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.demoButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(107, 70, 193, 0.3);
+}
+
+.demoButton:active {
+  transform: translateY(0);
+}
+
+.demoButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.loginButton {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  min-height: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loginButton:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.loginButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loginButton:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.loginButton:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* Footer */
+.footer {
+  padding: 1.25rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  background-color: #ffffff;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.version {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+}
+
+.footerLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .loginContainer {
+    padding: 0;
+    display: block;
+    height: 100%;
+  }
+  
+  .loginCard {
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100%;
+    max-width: 100%;
+  }
+  
+  .loginFormContainer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .footer {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s ease-in-out infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slideUp {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.errorMessage,
+.successMessage {
+  position: relative;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.errorMessage {
+  background-color: rgba(254, 226, 226, 0.95);
+  border-left: 4px solid #f56565;
+  color: #c53030;
+}
+
+
+
+.successMessage {
+  background-color: rgba(198, 246, 213, 0.95);
+  border-left: 4px solid #48bb78;
+  color: #2f855a;
+}
+
+
+
+.closeButton {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin-left: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s ease-in-out infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slideUp {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.errorMessage {
+  background-color: var(--error-color);
+  color: white;
+}
+
+.successMessage {
+  background-color: var(--success-color);
+  color: white;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.errorMessage button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}

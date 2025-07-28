@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Test</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .test-container {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="test-root"></div>
+
+  <script type="text/babel">
+    console.log('Test script running...');
+    
+    function TestApp() {
+      console.log('Rendering TestApp component');
+      return (
+        <div className="test-container">
+          <h1>React is working!</h1>
+          <p>If you can see this, React is loading correctly.</p>
+          <p>Check the browser console for debug logs.</p>
+          <div>
+            <h3>Environment Variables:</h3>
+            <pre>{JSON.stringify({
+              NODE_ENV: '${process.env.NODE_ENV}',
+              REACT_APP_API_URL: '${process.env.REACT_APP_API_URL}',
+              REACT_APP_ENV: '${process.env.REACT_APP_ENV}'
+            }, null, 2)}</pre>
+          </div>
+        </div>
+      );
+    }
+
+    console.log('Creating root...');
+    const rootElement = document.getElementById('test-root');
+    if (rootElement) {
+      console.log('Root element found, rendering...');
+      try {
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<TestApp />);
+        console.log('Render complete');
+      } catch (error) {
+        console.error('Error during render:', error);
+      }
+    } else {
+      console.error('Could not find root element');
+    }
+  </script>
+</body>
+</html>

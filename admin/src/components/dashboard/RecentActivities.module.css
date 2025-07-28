@@ -1,0 +1,398 @@
+/* Main Container */
+.recentActivities {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  flex: 1;
+}
+
+.emptyIcon {
+  font-size: 2rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+/* Loading State */
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #6b7280;
+  flex: 1;
+}
+
+.spinner {
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: #991b1b;
+  background-color: #fef2f2;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+
+.alertIcon {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.retryButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.retryButton:hover {
+  background-color: #b91c1c;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  background-color: #f9fafb;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.refreshButton {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  color: #6b7280;
+  transition: all 0.2s ease-in-out;
+  transform: rotate(0deg);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refreshButton:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+  transform: rotate(180deg);
+}
+
+/* Activity List */
+.activityList {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb #f9fafb;
+}
+
+.activityList > * + * {
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Scrollbar Styling */
+.activityList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.activityList::-webkit-scrollbar-track {
+  background-color: #f9fafb;
+}
+
+.activityList::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 9999px;
+}
+
+/* Activity Item */
+.activityItem {
+  padding: 1rem 1.5rem;
+  transition: all 0.2s ease-in-out;
+  border-left: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.activityItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #f9fafb;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.activityItem:hover {
+  background-color: #f9fafb;
+}
+
+.activityItem:hover::after {
+  transform: scaleX(1);
+}
+
+/* Activity Content */
+.activityContent {
+  flex: 1;
+  min-width: 0;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.activityIcon {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  padding: 0.5rem;
+  color: #4b5563;
+}
+
+.activityDetails {
+  flex: 1;
+  min-width: 0;
+  padding-right: 1rem;
+}
+
+.activityTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+}
+
+.activityDescription {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+}
+
+.activityTime {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.activityItem:hover .activityTime {
+  color: #6b7280;
+}
+
+/* Activity Type Colors */
+.activityMeeting {
+  border-left-color: #3b82f6;
+}
+
+.activityMeeting .activityIcon {
+  color: #3b82f6;
+  background-color: #dbeafe;
+}
+
+.activityDeadline {
+  border-left-color: #ef4444;
+}
+
+.activityDeadline .activityIcon {
+  color: #ef4444;
+  background-color: #fee2e2;
+}
+
+.activityCall {
+  border-left-color: #10b981;
+}
+
+.activityCall .activityIcon {
+  color: #10b981;
+  background-color: #d1fae5;
+}
+
+.activityReminder {
+  border-left-color: #f59e0b;
+}
+
+.activityReminder .activityIcon {
+  color: #f59e0b;
+  background-color: #fef3c7;
+}
+
+.activityEmail {
+  border-left-color: #8b5cf6;
+}
+
+.activityEmail .activityIcon {
+  color: #8b5cf6;
+  background-color: #ede9fe;
+}
+
+.activityProject {
+  border-left-color: #6366f1;
+}
+
+.activityProject .activityIcon {
+  color: #6366f1;
+  background-color: #e0e7ff;
+}
+
+.activityUser {
+  border-left-color: #ec4899;
+}
+
+.activityUser .activityIcon {
+  color: #ec4899;
+  background-color: #fce7f3;
+}
+
+/* Loading and Empty States */
+.loadingState,
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.emptyIcon {
+  width: 3rem;
+  height: 3rem;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+/* Alert / Error State */
+.alert {
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.alertIcon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.retryButton {
+  margin-left: auto;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retryButton:hover {
+  background-color: #dc2626;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Test</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    #test-root {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="test-root">
+    <p>If you see this, the test HTML loaded but React didn't render.</p>
+  </div>
+
+  <script type="text/babel">
+    function TestApp() {
+      return (
+        <div>
+          <h1>React is working! 🎉</h1>
+          <p>This is a direct test of React in the browser.</p>
+          <p>If you see this, React is working correctly.</p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('test-root'));
+    root.render(<TestApp />);
+    
+    console.log('React test app rendered successfully');
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "name": "admin-panel",
+  "version": "1.0.0",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.0.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@hookform/resolvers": "3.3.4",
+    "@mui/icons-material": "5.14.19",
+    "@mui/material": "5.14.19",
+    "@tailwindcss/postcss": "4.1.11",
+    "@tinymce/tinymce-react": "^6.2.1",
+    "antd": "^5.26.6",
+    "axios": "^1.6.2",
+    "chart.js": "4.4.1",
+    "date-fns": "3.6.0",
+    "framer-motion": "10.16.4",
+    "jwt-decode": "4.0.0",
+    "react": "18.2.0",
+    "react-big-calendar": "1.11.4",
+    "react-chartjs-2": "5.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.49.3",
+    "react-icons": "5.0.1",
+    "react-query": "3.39.3",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "6.20.1",
+    "react-scripts": "5.0.1",
+    "react-toastify": "10.0.4",
+    "yup": "1.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss}\"",
+    "lint": "eslint src --ext .js,.jsx --fix",
+    "prepare": "echo 'Skipping husky install for now' && exit 0",
+    "test:coverage": "react-scripts test --coverage"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "postcss": "8.4.31",
+    "prettier": "^3.1.1",
+    "tailwindcss": "3.4.1"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
+}

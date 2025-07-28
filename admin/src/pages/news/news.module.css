@@ -1,0 +1,622 @@
+/* Layout */
+.newsLayout {
+  background: #f0f2f5;
+  min-height: 100%;
+}
+
+.pageHeader {
+  background: #fff;
+  padding: 16px 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pageTitle {
+  margin: 0 !important;
+  color: #1f1f1f;
+  font-weight: 600;
+}
+
+.pageSubtitle {
+  margin: 4px 0 0;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.pageContent {
+  padding: 0 24px 24px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.contentWrapper {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  min-height: calc(100vh - 200px);
+}
+
+/* Buttons */
+.createButton {
+  font-weight: 500;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* News List Container */
+.newsContainer {
+  padding: 24px;
+  background: #fff;
+  min-height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* News Item Styles */
+.newsTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f1f1f;
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.newsTitle:hover {
+  color: #1890ff;
+}
+
+.newsMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-bottom: 8px;
+}
+
+.newsMeta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.newsStats {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.newsStats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Table Styles */
+:global(.ant-table) {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+}
+
+:global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+  font-weight: 600;
+  color: #1f1f1f;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+:global(.ant-table-tbody > tr > td) {
+  padding: 16px;
+  transition: background 0.3s;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+:global(.ant-table-tbody > tr:last-child > td) {
+  border-bottom: none;
+}
+
+:global(.ant-table-tbody > tr:hover > td) {
+  background: #f9f9f9 !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .actions {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .newsMeta, .newsStats {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  /* Responsive table */
+  :global(.ant-table) {
+    overflow-x: auto;
+  }
+  
+  /* Responsive form layout */
+  .newsForm :global(.ant-form-item) {
+    margin-bottom: 16px;
+  }
+}
+
+/* Status Badges */
+:global(.ant-tag) {
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 2px 8px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Custom tag styles */
+.tag {
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addTag {
+  background: #f5f5f5;
+  border-style: dashed;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.addTag:hover {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.tagInput {
+  width: 84px;
+  margin-bottom: 8px;
+}
+
+/* Action Buttons */
+:global(.ant-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Search and Filter Controls */
+.controls {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 48px 24px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin: 24px 0;
+  border: 1px dashed #d9d9d9;
+}
+
+.emptyState h3 {
+  color: #8c8c8c;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* News Detail Page */
+.newsDetailContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.articleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.articleActions {
+  display: flex;
+  gap: 12px;
+}
+
+.articleCard {
+  margin-bottom: 32px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.articleMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.metaLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.metaText {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  background-color: #1890ff;
+}
+
+.authorRole {
+  font-size: 12px;
+  display: block;
+  margin-top: 2px;
+}
+
+.articleTitle {
+  margin-bottom: 16px !important;
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+.articleExcerpt {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 24px !important;
+}
+
+.featuredImageContainer {
+  margin: 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.featuredImage {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.imageCaption {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+.articleContent {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.articleContent :global(p) {
+  margin-bottom: 1.5em;
+}
+
+.articleContent :global(h2),
+.articleContent :global(h3),
+.articleContent :global(h4) {
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  color: #1f1f1f;
+}
+
+.articleContent :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 24px 0;
+  display: block;
+}
+
+.tagsContainer {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tagIcon {
+  color: #8c8c8c;
+  margin-right: 8px;
+}
+
+/* Related News */
+.relatedNews {
+  margin-top: 48px;
+}
+
+.relatedCard {
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.relatedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+.relatedImageContainer {
+  height: 160px;
+  overflow: hidden;
+}
+
+.relatedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.relatedCard:hover .relatedImage {
+  transform: scale(1.05);
+}
+
+.relatedContent {
+  padding: 16px;
+}
+
+.relatedTag {
+  margin-bottom: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.relatedTitle {
+  margin-bottom: 8px !important;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 48px;
+}
+
+.relatedDate {
+  font-size: 12px;
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .articleMeta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .articleActions {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  .articleActions button {
+    flex: 1;
+  }
+  
+  .relatedImageContainer {
+    height: 200px;
+  }
+}
+
+/* Loading State */
+.loadingState {
+  display: flex;
+  justify-content: center;
+  padding: 48px 0;
+  background: #fff;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+
+/* Image Uploader */
+.imageUploader {
+  width: 100%;
+}
+
+.imageUploader :global(.ant-upload.ant-upload-select-picture-card) {
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  border: 1px dashed #d9d9d9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.imageUploader :global(.ant-upload.ant-upload-select-picture-card:hover) {
+  border-color: #1890ff;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.imagePreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Quill Editor */
+.quillEditor {
+  height: 300px;
+  margin-bottom: 40px;
+}
+
+.quillEditor :global(.ql-container) {
+  min-height: 200px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.quillEditor :global(.ql-toolbar) {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-color: #d9d9d9 !important;
+}
+
+.quillEditor :global(.ql-container) {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-color: #d9d9d9 !important;
+}
+
+/* Card Styles */
+:global(.ant-card) {
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 24px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+:global(.ant-card):hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #e0e0e0;
+}
+
+:global(.ant-card-head) {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+  background: #fafafa;
+  border-radius: 8px 8px 0 0;
+}
+
+:global(.ant-card-body) {
+  padding: 24px;
+}
+
+/* Form Card */
+.formCard {
+  margin-bottom: 24px;
+}
+
+/* Content Card */
+.contentCard {
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+/* Sidebar Card */
+.sidebarCard {
+  margin-bottom: 24px;
+  border-radius: 8px;
+}
+
+/* Responsive Table */
+@media (max-width: 992px) {
+  :global(.ant-table) {
+    overflow-x: auto;
+  }
+}

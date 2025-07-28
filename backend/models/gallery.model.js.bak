@@ -1,0 +1,182 @@
+/* eslint-env node, commonjs */
+/* eslint-disable no-undef */
+'use strict';
+
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+
+const galleryItemSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: [true, 'Please provide a title'],
+    trim: true,
+    maxlength: [100, 'Title cannot be more than 100 characters']
+  },
+  description: {
+    type: String,
+    trim: true,
+    maxlength: [500, 'Description cannot be more than 500 characters']
+  },
+  mediaType: {
+    type: String,
+    required: true,
+    enum: ['image', 'video'],
+    default: 'image'
+  },
+  mediaUrl: {
+    type: String,
+    required: [true, 'Please provide a media URL']
+  },
+  thumbnailUrl: {
+    type: String,
+    required: [true, 'Please provide a thumbnail URL']
+  },
+  metadata: {
+    width: Number,
+    height: Number,
+    size: Number,
+    format: String,
+    duration: Number,
+    aspectRatio: String,
+    createdAt: {
+      type: Date,
+      default: Date.now
+    }
+  },
+  exif: {
+    cameraMake: String,
+    cameraModel: String,
+    focalLength: String,
+    aperture: String,
+    shutterSpeed: String,
+    iso: Number,
+    takenAt: Date,
+    location: {
+      type: {
+        type: String,
+        enum: ['Point'],
+        default: 'Point'
+      },
+      coordinates: {
+        type: [Number],
+        index: '2dsphere'
+      },
+      name: String
+    }
+  },
+  category: {
+    type: String,
+    required: [true, 'Please provide a category'],
+    enum: ['nature', 'architecture', 'people', 'events', 'other']
+  },
+  album: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Album',
+    index: true
+  },
+  tags: [{
+    type: String,
+    trim: true,
+    lowercase: true
+  }],
+  isFeatured: {
+    type: Boolean,
+    default: false
+  },
+  status: {
+    type: String,
+    enum: ['draft', 'published', 'archived'],
+    default: 'published'
+  },
+  views: {
+    type: Number,
+    default: 0
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  updatedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+});
+
+galleryItemSchema.index({ title: 'text', description: 'text', tags: 'text' });
+galleryItemSchema.index({ isFeatured: 1, status: 1 });
+galleryItemSchema.index({ album: 1, status: 1 });
+
+galleryItemSchema.virtual('albumInfo', {
+  ref: 'Album',
+  localField: 'album',
+  foreignField: '_id',
+  justOne: true
+});
+
+galleryItemSchema.pre('save', async function(next) {
+  next();
+});
+
+galleryItemSchema.statics.findSimilar = async function(mediaUrl, title) {
+  return await this.findOne({
+    $or: [
+      { mediaUrl },
+      { title: { $regex: new RegExp(`^${title}$`, 'i') } }
+    ]
+  });
+};
+
+// Add pagination plugin
+galleryItemSchema.plugin(mongoosePaginate);
+
+const GalleryItem = mongoose.model('GalleryItem', galleryItemSchema);
+
+const albumSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: [true, 'Please provide a title'],
+    trim: true,
+    maxlength: [100, 'Title cannot be more than 100 characters']
+  },
+  description: {
+    type: String,
+    trim: true,
+    maxlength: [500, 'Description cannot be more than 500 characters']
+  },
+  coverImage: {
+    type: String,
+    required: [true, 'Please provide a cover image URL']
+  },
+  isPublic: {
+    type: Boolean,
+    default: true
+  },
+  itemCount: {
+    type: Number,
+    default: 0
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
+}, {
+  timestamps: true
+});
+
+albumSchema.statics.updateItemCount = async function(albumId) {
+  const count = await GalleryItem.countDocuments({ album: albumId });
+  return this.findByIdAndUpdate(albumId, { itemCount: count });
+};
+
+// Add pagination plugin to Album schema
+albumSchema.plugin(mongoosePaginate);
+
+const Album = mongoose.model('Album', albumSchema);
+
+module.exports = { GalleryItem, Album };

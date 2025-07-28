@@ -1,0 +1,110 @@
+/* Sidebar Header/Logo */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-title {
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Allow nav items to fill space */
+  padding-top: 1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  gap: 12px; /* Increased gap */
+  position: relative; /* Required for pseudo-element positioning */
+}
+
+.nav-item:hover {
+  background: rgba(37, 99, 235, 0.1);
+  color: #ffffff;
+}
+
+/* Full-Width Design */
+.nav-list-item {
+  margin-bottom: 4px; /* Add a small margin between items */
+}
+
+.nav-list-item.active .nav-item {
+  background-color: #2563eb; /* Set the background color for the active item */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  width: 24px; /* Fixed width for alignment */
+  justify-content: center;
+}
+
+.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s ease;
+}
+
+/* Collapsed State */
+.sidebar-nav.collapsed .label {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar-nav.collapsed .nav-item {
+  justify-content: center;
+}
+
+.sidebar-nav.collapsed .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar-nav.collapsed .sidebar-title {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar-nav.collapsed .sidebar-toggle-btn {
+  margin-right: 0; /* Remove margin in collapsed state */
+}

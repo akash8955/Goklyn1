@@ -1,0 +1,96 @@
+/* eslint-env node, commonjs */
+'use strict';
+
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+
+const galleryItemSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: [true, 'Please provide a title'],
+    trim: true,
+    maxlength: [100, 'Title cannot be more than 100 characters']
+  },
+  description: {
+    type: String,
+    trim: true,
+    maxlength: [500, 'Description cannot be more than 500 characters']
+  },
+  album: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Album',
+    required: [true, 'Please select an album']
+  },
+  mediaType: {
+    type: String,
+    required: true,
+    enum: ['image', 'video'],
+    default: 'image'
+  },
+  mediaUrl: {
+    type: String,
+    required: [true, 'Please provide a media URL']
+  },
+  thumbnailUrl: {
+    type: String,
+    required: [true, 'Please provide a thumbnail URL']
+  },
+  metadata: {
+    width: Number,
+    height: Number,
+    size: Number,
+    format: String,
+    duration: Number,
+    aspectRatio: String
+  },
+  isFeatured: {
+    type: Boolean,
+    default: false
+  },
+  isActive: {
+    type: Boolean,
+    default: true
+  },
+  createdBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  updatedBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User'
+  }
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
+});
+
+// Indexes
+galleryItemSchema.index({ title: 'text', description: 'text' });
+galleryItemSchema.index({ album: 1, isActive: 1 });
+galleryItemSchema.index({ isFeatured: 1, isActive: 1 });
+
+// Static method to get featured items
+galleryItemSchema.statics.getFeatured = function() {
+  return this.find({ isFeatured: true, isActive: true })
+    .populate('album', 'title')
+    .sort('-createdAt')
+    .limit(10);
+};
+
+// Query middleware to populate album details
+galleryItemSchema.pre(/^find/, function(next) {
+  this.populate({
+    path: 'album',
+    select: 'title description'
+  });
+  next();
+});
+
+// Add pagination plugin
+galleryItemSchema.plugin(mongoosePaginate);
+
+const GalleryItem = mongoose.model('GalleryItem', galleryItemSchema);
+
+module.exports = GalleryItem;

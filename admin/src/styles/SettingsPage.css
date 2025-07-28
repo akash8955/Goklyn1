@@ -1,0 +1,135 @@
+.settings-page {
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.settings-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.settings-nav {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.settings-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-nav li {
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.settings-nav li:hover {
+  background-color: var(--background-primary);
+}
+
+.settings-nav li.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+}
+
+.settings-content {
+  flex-grow: 1;
+  background-color: var(--background-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.theme-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--background-secondary);
+  border-color: var(--text-secondary);
+}
+
+.settings-card {
+  background-color: var(--background-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.btn-primary:disabled {
+  background-color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: #10b981;
+  margin-bottom: 1rem;
+}

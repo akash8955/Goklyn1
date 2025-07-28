@@ -1,0 +1,140 @@
+/* Testimonial Section */
+.testimonial-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.testimonial-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  font-style: italic;
+  position: relative;
+  padding: 0 10px;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+  content: '"';
+  font-size: 3rem;
+  color: #2563eb;
+  opacity: 0.2;
+  position: absolute;
+  line-height: 1;
+}
+
+.testimonial-text::before {
+  top: -15px;
+  left: -10px;
+}
+
+.testimonial-text::after {
+  bottom: -40px;
+  right: -10px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a5568;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  margin: 0 0 5px;
+  color: #1a202c;
+  font-size: 1.1rem;
+}
+
+.author-role,
+.author-company {
+  margin: 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.author-role {
+  font-weight: 500;
+  color: #4a5568;
+}
+
+/* Rating */
+.rating {
+  color: #f59e0b;
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-section {
+    padding: 60px 0;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .author-name {
+    font-size: 1rem;
+  }
+  
+  .author-role,
+  .author-company {
+    font-size: 0.85rem;
+  }
+}
